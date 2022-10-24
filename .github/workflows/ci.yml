@@ -73,8 +73,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_NAME }}:${{ steps.branch-name.outputs.current_branch }}
-          
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.branch-name.outputs.current_branch }}
+
       - name: Build and push 'latest' tag
         if: steps.branch-name.outputs.is_default == 'true'
         uses: docker/build-push-action@v3
