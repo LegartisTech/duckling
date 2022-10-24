@@ -73,7 +73,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.branch-name.outputs.current_branch }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.branch-name.outputs.current_branch }},${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_SHA }}
 
       - name: Build and push 'latest' tag
         if: steps.branch-name.outputs.is_default == 'true'
